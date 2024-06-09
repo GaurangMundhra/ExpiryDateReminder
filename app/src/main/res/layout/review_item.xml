@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:elevation="4dp"
+    android:layout_margin="8dp"
+    android:clipToPadding="false">
+
+    <!-- User Info Section -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:paddingBottom="8dp">
+
+<ImageView
+    android:id="@+id/user_image"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:src="@drawable/user_icon"
+    android:scaleType="centerCrop"
+    android:layout_marginRight="8dp"
+    android:background="@drawable/circle_background" />
+
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nathalee M. wrote a review"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/review_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11 minutes ago"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp" />
+</LinearLayout>
+</LinearLayout>
+
+    <!-- Review Content Section -->
+<ImageView
+android:id="@+id/review_image"
+android:layout_width="match_parent"
+android:layout_height="300dp"
+android:src="@drawable/sample_image"
+android:scaleType="centerCrop"
+android:layout_marginBottom="8dp" />
+
+<TextView
+android:id="@+id/review_title"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Kantine"
+android:textStyle="bold"
+android:textColor="@android:color/black"
+android:textSize="16sp"
+android:layout_marginBottom="4dp" />
+
+    <!-- Rating Section -->
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:layout_marginBottom="4dp">
+
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_star_filled"
+    android:layout_marginRight="2dp" />
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_star_filled"
+    android:layout_marginRight="2dp" />
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_star_filled"
+    android:layout_marginRight="2dp" />
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_star_filled"
+    android:layout_marginRight="2dp" />
+<ImageView
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_star_filled"
+    android:layout_marginRight="2dp" />
+</LinearLayout>
+
+<TextView
+android:id="@+id/review_text"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="This app is a true gem. Literally helped me a lot in preventing wastage of food. Good initiative for environment taken by founders."
+android:textColor="@android:color/black"
+android:textSize="14sp"
+android:layout_marginBottom="8dp" />
+
+<TextView
+android:id="@+id/review_read_more"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Read more"
+android:textColor="@android:color/holo_blue_light"
+android:textSize="14sp"
+android:textStyle="bold" />
+
+    <!-- Action Icons Section -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:paddingTop="8dp">
+
+<pl.droidsonroids.gif.GifImageView
+    android:layout_width="36dp"
+    android:layout_height="36dp"
+    android:src="@drawable/icons8_like"
+    android:layout_marginRight="16dp" />
+
+<ImageView
+    android:layout_width="36dp"
+    android:layout_height="36dp"
+    android:src="@drawable/ic_comment"
+    android:layout_marginRight="16dp" />
+<ImageView
+    android:layout_width="36dp"
+    android:layout_height="36dp"
+    android:src="@drawable/ic_share"
+    android:layout_marginRight="16dp" />
+</LinearLayout>
+    </LinearLayout>

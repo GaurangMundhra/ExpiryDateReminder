@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Title: Contact Us -->
+        <ImageButton
+            android:id="@+id/backButton13"
+            android:layout_width="45dp"
+            android:layout_height="47dp"
+            android:background="#FFFFFF"
+            android:onClick="onBackButtonClick"
+            android:soundEffectsEnabled="true"
+            android:src="@drawable/back_arrow"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/contactTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:paddingBottom="20sp"/>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"/>
+
+        <!-- Your Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Name"
+                android:layout_gravity="center"
+                android:paddingEnd="20sp"/>
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Enter your name"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"/>
+
+        <!-- Your Email -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Email"
+                android:layout_gravity="center"
+                android:paddingEnd="20sp"/>
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Enter your email"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"/>
+
+        <!-- Subject -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject"
+                android:layout_gravity="center"
+                android:paddingEnd="20sp"/>
+
+            <EditText
+                android:id="@+id/editTextSubject"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Enter subject"
+                android:background="@drawable/edittext_background"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"/>
+
+        <!-- Your Message (optional) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20sp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Message (optional)"
+                android:layout_gravity="center"
+                android:paddingEnd="20sp"/>
+
+            <EditText
+                android:id="@+id/editTextMessage"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Enter your message"
+                android:background="@drawable/edittext_background"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"/>
+
+        <!-- Contact Us/Call Us -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Call Us/Contact Us on Whatsapp:"
+            android:paddingBottom="10sp"/>
+
+        <Button
+            android:id="@+id/callButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FF2800"
+            android:onClick="makePhoneCall"
+            android:text="+91 9405X XXXXX"
+            android:textColor="#000000" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="100sp"/>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="#FF03DAC5"
+            android:onClick="submitContactForm"
+            android:text="Submit"
+            android:textColor="#004D40" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="60sp"/>
+
+        <!-- Footer -->
+
+
+    </LinearLayout>
+</ScrollView>

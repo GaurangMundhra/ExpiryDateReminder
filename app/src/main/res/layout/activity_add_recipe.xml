@@ -1,0 +1,87 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRecipeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/recipe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Recipe Name"
+            android:padding="16dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/recipe_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingredients"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:gravity="top"
+            android:padding="16dp"
+            android:layout_below="@id/recipe_name"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/recipe_preparation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Preparation Steps"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:gravity="top"
+            android:padding="16dp"
+            android:layout_below="@id/recipe_ingredients"
+            android:textSize="16sp"/>
+
+        <ImageView
+            android:id="@+id/recipe_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/recipe_preparation"
+            android:layout_marginTop="16dp"
+            android:background="#E0E0E0"
+            android:contentDescription="Recipe Image"
+            android:scaleType="centerCrop"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/add_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipe_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Add Image"/>
+
+        <Button
+            android:id="@+id/share_recipe_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:layout_below="@id/add_image_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Share Recipe" />
+
+        <Button
+            android:id="@+id/post_recipe_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:layout_below="@id/share_recipe_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Post Recipe" />
+
+    </RelativeLayout>
+
+</ScrollView>

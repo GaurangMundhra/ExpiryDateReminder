@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_categories"
+            android:title="Categories"
+            android:icon="@drawable/categories_icon"/>
+        <item
+            android:id="@+id/nav_recipes"
+            android:title="Recipes"
+            android:icon="@drawable/recipe"/>
+        <item
+            android:id="@+id/nav_ngos"
+            android:title="NGOs"
+            android:icon="@drawable/ngo"/>
+        <item
+            android:id="@+id/nav_stores"
+            android:title="Stores"
+            android:icon="@drawable/stores"/>
+
+        <item
+            android:id="@+id/nav_contact_us"
+            android:title="Contact Us"
+            android:icon="@drawable/contact_us"/>
+
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Logout"
+            android:icon="@drawable/logout"/>
+   </group>
+</menu>
