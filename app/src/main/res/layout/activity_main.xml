@@ -1,219 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--suppress XmlUnusedNamespaceDeclaration -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <View
-        android:id="@+id/divider6"
-        android:layout_width="5dp"
-        android:layout_height="match_parent"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="@color/purple_500"
-        android:backgroundTintMode="src_over" />
-    <View
-        android:id="@+id/divider4"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="@color/purple_500"
-        android:backgroundTintMode="src_over" />
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="wrap_content"
-        android:layout_height="5dp"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="23dp"
-
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="@color/purple_500"
-        android:backgroundTintMode="src_over" />
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="@color/purple_500"
-        android:backgroundTintMode="src_over" />
-    <View
-        android:id="@+id/divider5"
-        android:layout_width="5dp"
-        android:layout_height="match_parent"
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="@color/purple_500"
-        android:backgroundTintMode="src_over" />
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="0dp"
-        android:background="@color/purple_500"
-        android:backgroundTintMode="src_over" />
-    <TextView
-        android:id="@+id/copyrightText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentBottom="true"
-
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-
-        android:text="Developed by: Anish S. (2022)"
-        android:fontFamily="serif-monospace"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textColor="#807C7C"
-
-        android:textSize="14sp"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addItemButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="235dp"
-        app:borderWidth="0dp"
-        android:backgroundTint="@color/purple_500"
-        tools:ignore="RelativeOverlap"
-        android:foreground="@drawable/ic_baseline_add_24"
-        android:contentDescription="Add Item" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/refreshButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="170dp"
-        app:borderWidth="0dp"
-        android:backgroundTint="@color/purple_500"
-        android:foreground="@drawable/ic_baseline_refresh_24"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        tools:ignore="RelativeOverlap"
-        android:contentDescription="refresh" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/settings_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:foreground="@drawable/ic_baseline_settings_24"
-        android:backgroundTint="@color/purple_500"
-        android:backgroundTintMode="src_over"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@id/refreshButton"
-        android:layout_alignParentBottom="true"
-        app:borderWidth="0dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="105dp"
-        tools:ignore="RelativeOverlap"
-        android:contentDescription="settings"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/help_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:backgroundTint="@color/purple_500"
-        android:backgroundTintMode="src_over"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:foreground="@drawable/ic_baseline_help_outline_24"
-        app:borderWidth="0dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="40dp"
-        android:contentDescription="help button"
-        tools:ignore="RelativeOverlap">
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
-    <Button
-        android:id="@+id/sortButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:backgroundTint="@color/purple_500"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="9dp"
-        android:text="Sort By: Name"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+    android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="28dp"
-
         android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <ListView
-            android:id="@+id/listView"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:text="Best Before"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            android:textColor="#0000FF"
+            android:textDirection="rtl"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scrollHorizontally="true" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="244dp"
+            android:contentDescription="@string/logo_name"
+            android:src="@drawable/logo_best_before" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Waste Less , Feed More"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginVertical="60sp"
+            android:textStyle="italic"
+            />
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginVertical="15sp"-->
+<!--            android:fontFamily="sans-serif"-->
+<!--            android:text="@string/get_best_discounts_rates_with_variety_of_coupons"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/coupearnpage1"-->
+<!--            android:contentDescription="@string/coupearnpage1"-->
+<!--            android:layout_marginVertical="20sp"/>-->
+
+        <LinearLayout
+            android:id="@+id/LinearLayout02"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@android:dimen/app_icon_size"
+            android:layout_marginVertical="20sp">
+
+            <Button
+                android:id="@+id/Button02"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#3333FF"
+                android:text="Login"
+                android:textColor="#CFD8DC" />
+
+            <Button
+                android:id="@+id/Button03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SIGN UP"
+                android:textColor="#000000"
+                android:background="#00FF00"
+                style="?android:attr/buttonBarButtonStyle"
+                tools:ignore="VisualLintButtonSize" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="#3333FF"
+            android:text="Follow Us On Social media"
+            android:gravity="center"
+            android:textColor="#00FF00"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black" />
+
+
+
+        <LinearLayout
+            android:id="@+id/LinearLayout03"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@android:dimen/app_icon_size"
+            >
+
+            <ImageButton
+                android:id="@+id/imageView5"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="200sp"
+                android:onClick="openInstagram"
+                android:contentDescription="instagram"
+                android:src="@drawable/instagram" />
+        </LinearLayout>
+
+
+
+
+
 
     </LinearLayout>
-    <Spinner
-        android:id="@+id/category_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@id/sortButton"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="10dp"
-        android:spinnerMode="dropdown" />
-
-</RelativeLayout>
+</ScrollView>

@@ -1,49 +1,33 @@
 package com.anish.expirydatereminder;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "itemsDatabase";
-    private static final int DB_VERSION = 8;
-    private static final String TABLE_NAME = "itemsTable";
-    private static final String ID_COL = "id";
-    private static final String NAME_COL = "itemName";
-    private static final String MONTH_COL = "month";
-    private static final String YEAR_COL = "year";
-    private static final String CATEGORY_COL = "category";
-    private static final String DATE_COL = "date";
+    private static final int DB_VERSION = 8; // Updated version to 8
+    public static final String TABLE_NAME = "itemsTable";
+    public static final String ID_COL = "id";
+    public static final String NAME_COL = "itemName";
+    public static final String MONTH_COL = "month";
+    public static final String YEAR_COL = "year";
+    public static final String CATEGORY_COL = "category";
+    public static final String DATE_COL = "date";
 
     public DatabaseHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
-        try{
-            onCreate(getWritableDatabase());
-        }
-        catch (SQLException e) {
-            String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
-                    + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + NAME_COL + " TEXT,"
-                    + MONTH_COL + " INTEGER,"
-                    + YEAR_COL + " INTEGER,"
-                    + DATE_COL + " INTEGER,"
-                    + CATEGORY_COL + " TEXT)";
-
-            // at last we are calling a exec sql method to execute above sql query
-            getWritableDatabase().execSQL(query);
-        }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // on below line we are creating an sqlite query and we are setting our column names along with their data types.
         String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL + " TEXT,"
@@ -51,107 +35,93 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + YEAR_COL + " INTEGER,"
                 + DATE_COL + " INTEGER,"
                 + CATEGORY_COL + " TEXT)";
-
-        // at last we are calling a exec sql method to execute above sql query
         db.execSQL(query);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        // Drop older table if existed
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        if (oldVersion < 8) {
+            boolean categoryColumnExists = false;
+            Cursor cursor = db.rawQuery("PRAGMA table_info(" + TABLE_NAME + ")", null);
+            if (cursor.moveToFirst()) {
+                do {
+                    @SuppressLint("Range") String columnName = cursor.getString(cursor.getColumnIndex("name"));
+                    if (CATEGORY_COL.equals(columnName)) {
+                        categoryColumnExists = true;
+                        break;
+                    }
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+
+            if (!categoryColumnExists) {
+                db.execSQL("ALTER TABLE " + TABLE_NAME + " ADD COLUMN " + CATEGORY_COL + " TEXT DEFAULT ''");
+            }
+        }
+    }
+
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Add custom downgrade handling if needed
+        // For example, you might migrate data to preserve it during downgrade
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        // Create tables again
         onCreate(db);
     }
 
     public void clearDatabase() {
         SQLiteDatabase db = getWritableDatabase();
-        String clearDBQuery = "DELETE FROM " + TABLE_NAME;
-        db.execSQL(clearDBQuery);
-    }
-
-    public void addNewItem(ItemModel object) {
-        // on below line we are creating a variable for our sqlite database and calling writable method as we are writing data in our database.
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        // on below line we are creating a variable for content values.
-        ContentValues values = new ContentValues();
-
-        String name = object.getItem();
-        int month = object.getMonth();
-        int year = object.getYear();
-        int date = object.getDate();
-        String catg = object.getCategory();
-
-        // on below line we are passing all values along with its key and value pair.
-        values.put(NAME_COL, name);
-        values.put(MONTH_COL, month);
-        values.put(YEAR_COL, year);
-        values.put(DATE_COL, date);
-        values.put(CATEGORY_COL, catg);
-
-        // after adding all values we are passing content values to our table.
-        db.insert(TABLE_NAME, null, values);
-
-        // at last we are closing our database after adding database.
+        db.execSQL("DELETE FROM " + TABLE_NAME);
         db.close();
     }
 
-    public ArrayList<ItemModel> getAllItems() {
-        // on below line we are creating a database for reading our database.
-        SQLiteDatabase db = this.getReadableDatabase();
+    public void addNewItem(ItemModel object) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
 
-        // on below line we are creating a cursor with query to read data from database.
-        Cursor crs = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        values.put(NAME_COL, object.getItem());
+        values.put(MONTH_COL, object.getMonth());
+        values.put(YEAR_COL, object.getYear());
+        values.put(DATE_COL, object.getDate());
+        values.put(CATEGORY_COL, object.getCategory());
 
-        // on below line we are creating a new array list.
-        ArrayList<ItemModel> items = new ArrayList<>();
-
-        // moving our cursor to first position.
-        if (crs.moveToFirst()) {
-            do {
-                // on below line we are adding the data from cursor to our array list.
-                items.add(new ItemModel(crs.getString(1), crs.getInt(2), crs.getInt(3), crs.getInt(4), crs.getString(5)));
-                Log.d("Accessing", "ROW ID = " + crs.getString(0));
-            } while (crs.moveToNext());
-            // moving our cursor to next.
-        }
-
-        // at last closing our cursor and returning our array list.
-        crs.close();
-        return items;
+        db.insert(TABLE_NAME, null, values);
+        db.close();
     }
 
-    public ArrayList<ItemModel> getAllItems(String category) {
-        // on below line we are creating a database for reading our database.
+    public List<ItemModel> getAllItems() {
+        List<ItemModel> items = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
-        // on below line we are creating a cursor with query to read data from database.
-        Cursor crs = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-
-        // on below line we are creating a new array list.
-        ArrayList<ItemModel> items = new ArrayList<>();
-
-        // moving our cursor to first position.
-        if (crs.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             do {
-                // on below line we are adding the data from cursor to our array list.
-                if (crs.getString(5).equals(category)) {
-                    items.add(new ItemModel(crs.getString(1), crs.getInt(2), crs.getInt(3), crs.getInt(4), crs.getString(5)));
-                    Log.d("Added", "Item with row id =" + crs.getString(0));
+                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(NAME_COL));
+                int monthIndex = cursor.getColumnIndex(MONTH_COL);
+                int yearIndex = cursor.getColumnIndex(YEAR_COL);
+                int dateIndex = cursor.getColumnIndex(DATE_COL);
+                int categoryIndex = cursor.getColumnIndex(CATEGORY_COL);
+
+                // Check if column index is valid
+                if (monthIndex != -1 && yearIndex != -1 && dateIndex != -1 && categoryIndex != -1) {
+                    int month = cursor.getInt(monthIndex);
+                    int year = cursor.getInt(yearIndex);
+                    int date = cursor.getInt(dateIndex);
+                    String category = cursor.getString(categoryIndex);
+
+                    ItemModel item = new ItemModel(name, month, year, date, category);
+                    items.add(item);
                 }
-                Log.d("Accessing", "ROW ID = " + crs.getString(0));
-            } while (crs.moveToNext());
-            // moving our cursor to next.
+            } while (cursor.moveToNext());
         }
 
-        // at last closing our cursor and returning our array list.
-        crs.close();
+        cursor.close();
+        db.close();
         return items;
     }
 
     public void deleteRow(ItemModel obj) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, "itemName=?", new String[]{obj.getItem()});
+        db.delete(TABLE_NAME, NAME_COL + "=?", new String[]{obj.getItem()});
+        db.close();
     }
 }

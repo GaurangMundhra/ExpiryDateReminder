@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="ACCESS_MEDIA_LOCATION" />
     <uses-permission android:name="MANAGE_EXTERNAL_STORAGE" />
 
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true">
-    </uses-feature>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:icon="@mipmap/ic_launcher_web"
+        android:label="Best Before"
+        android:roundIcon="@mipmap/ic_launcher_web"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ExpiryDateReminder">
+        android:theme="@style/Theme.ExpiryDateReminder"
+        tools:replace="android:label">
+        <activity
+            android:name=".ListItem"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
 
         <provider
-            android:authorities="${applicationId}.provider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths">
-            </meta-data>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
         </provider>
-
 
         <activity
             android:name=".ItemDetailsOnClick"
@@ -41,9 +48,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity" />
+        <activity android:name=".Login" />
+        <activity android:name=".SignUp"/>
+        <activity android:name=".NGOActivity"/>
+        <activity android:name=".StoresActivity"/>
+        <activity android:name=".MainRecipesActivity"/>
+        <activity android:name=".AddRecipeActivity"/>
+        <activity android:name=".ViewRecipesActivity"/>
+        <activity android:name=".ContactFormActivity"/>
 
-        <receiver android:name=".WakeUpReceiver"/>
+        <receiver android:name=".WakeUpReceiver" />
     </application>
+
 </manifest>

@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_help">#FFFFFF</color>
+    <color name="banner_background">#FFFFFFFF</color>
+    <color name="colorAccent">#FF0000</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
 </resources>

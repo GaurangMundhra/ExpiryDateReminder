@@ -1,28 +1,29 @@
 package com.anish.expirydatereminder;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Handler;
 
-import java.util.Objects;
-
-@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
+
+    private static final int SPLASH_DISPLAY_LENGTH = 2000; // Duration for the splash screen (in milliseconds)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Objects.requireNonNull(getSupportActionBar()).hide();
 
-        final Intent i = new Intent(SplashActivity.this, MainActivity.class);
-        new Handler().postDelayed(() -> {
-            startActivity(i);
-            finish();
-        }, 2000);
-
+        // Handler to start the main activity after the specified duration
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                startActivity(mainIntent);
+                finish(); // Close the splash activity
+            }
+        }, SPLASH_DISPLAY_LENGTH);
     }
 }
