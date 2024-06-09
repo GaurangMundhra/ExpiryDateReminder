@@ -2,7 +2,7 @@
     <string name="app_name">Expiry Date Reminder</string>
     <string name="search_text">Search</string>
     <string name="logo_name">Logo</string>
-    <string name="firebase_api_key">AIzaSyBtUdzghmcwedLmPMO3rJn2Mni9YMOzj8U</string>
+    <string name="firebase_api_key">YOUR_NEW_API_KEY</string>
     <string name="navigation_drawer_open" />
     <string name="navigation_drawer_close" />
 </resources>
